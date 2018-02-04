@@ -1,0 +1,128 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fffff0;
+  font-family: monospace;
+  font-size: 18px;
+  color: #2f4f4f;
+}
+article#hedgerow {
+  border: 1px dotted #d3d3d3;
+  width: 30em;
+  height: 30em;
+  margin: 2% auto;
+  padding: 4px 0;
+  overflow: hidden;
+}
+section#pergola {
+  text-align: center;
+}
+section#pergola input#veranda {
+  width: 7em;
+  margin: 0;
+  border: 1px solid #a9a9a9;
+  border-radius: 4px;
+  padding: 0.2em;
+  text-align: center;
+  font-family: monospace;
+  font-size: 16px;
+}
+section#pergola button {
+  width: 7em;
+  margin: 0;
+  border: 1px solid #a9a9a9;
+  border-radius: 4px;
+  padding: 0.2em;
+  background-color: transparent;
+  font-family: monospace;
+  font-size: 16px;
+  color: #2f4f4f;
+}
+section#pergola button:hover {
+  border-color: #808080;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+section#pavilion {
+  width: 21em;
+  height: 11em;
+  margin: 2px auto;
+  border: 1px dotted #d3d3d3;
+  overflow: hidden;
+  text-align: center;
+  font-size: 24px;
+}
+dl.lattice {
+  width: 19em;
+  margin: 0.66em auto;
+  border: 1px dotted transparent;
+  padding: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+}
+dl.lattice dt {
+  padding: 2px;
+  font-size: 20px;
+  color: #696969;
+}
+dl.lattice dd {
+  margin: 0;
+}
+section#terrace {
+  text-align: center;
+}
+section#terrace table#gazebo {
+  margin: 0 auto;
+  border: 1px dotted transparent;
+}
+section#terrace table#gazebo button {
+  border: 1px solid #a9a9a9;
+  border-radius: 6px;
+  background-color: transparent;
+  padding: 0.3em;
+  font-family: monospace;
+  font-size: 15px;
+  color: #2f4f4f;
+}
+section#terrace table#gazebo button:hover {
+  border-color: #808080;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+@media screen and (max-width: 500px) {
+  article#hedgerow {
+    width: 98%;
+    margin: 1% auto;
+    padding: 0;
+  }
+  section#pergola input#veranda {
+    width: 6.5em;
+    padding: 0.1em;
+  }
+  section#pergola button {
+    width: 6.5em;
+    padding: 0.1em;
+  }
+  section#pavilion {
+    width: 96%;
+    margin: 1% auto;
+    font-size: 1.3em;
+  }
+  dl.lattice {
+    width: 94%;
+    margin: 1% auto;
+  }
+  dl.lattice dt {
+    padding: 1%;
+    font-size: 0.8em;
+  }
+  section#terrace table#gazebo button {
+    padding: 0.15em;
+    font-size: 0.8em;
+  }
+}
+
