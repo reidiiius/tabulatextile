@@ -117,10 +117,72 @@ PanGaea.Graphiato = {
     bk: function(qp) {return this.cn(qp)}
 };
 
-PanGaea.Shadjam = function(a, n) {
-  var v = a.slice(0, a.length);
-  v[n] = "\u56DE";
-  return v.join(" ") + " ";
+PanGaea.setPegBox = function(s) {
+  var a = ["bj","fn","cn","gn","dn","an","en","bn","fk"];
+  var i, c;
+  var n = this.Scordatura.length;
+
+  if (n > 0) {
+    i = n;
+    while (i > 0) {
+      this.Scordatura.pop();
+      i--;
+    }
+  }
+
+  switch(s) {
+    case "beadgcf":
+      c = a.slice(1, 8);
+      i = 0;
+      while (i < c.length) {
+        this.Scordatura.push(c[i]);
+        i++;
+      }
+      this.TuningPegs = s;
+      break;
+
+    case "cgdae":
+      c = a.slice(2, 7).reverse();
+      i = 0;
+      while (i < c.length) {
+        this.Scordatura.push(c[i]);
+        i++;
+      }
+      this.TuningPegs = s;
+      break;
+
+    case "eadgbe":
+      c = a.slice(6, 8).concat(a.slice(3, 7));
+      i = 0;
+      while (i < c.length) {
+        this.Scordatura.push(c[i]);
+        i++;
+      }
+      this.TuningPegs = s;
+      break;
+
+    default:
+      this.Scordatura = ["dn","bj","fk","dn","bj","fk"];
+      this.TuningPegs = "fkbjdn";
+  }
+};
+
+PanGaea.ndxP = function(k) {
+  var a = this.Psalmodicon[k].split(" ");
+  var s = "__";
+
+  if (a[0] !== s) {
+    return 0;
+  }
+  else if (a[7] !== s) {
+    return 7;
+  }
+  else if (a[5] !== s) {
+    return 5;
+  }
+  else {
+    return 11;
+  }
 };
 
 PanGaea.Sampurna = function(k) {
@@ -130,13 +192,22 @@ PanGaea.Sampurna = function(k) {
   return v.split(" ");
 };
 
+PanGaea.Shadjam = function(a, n) {
+  var v = a.slice(0, a.length);
+  v[n] = "\u56DE";
+  return v.join(" ") + " ";
+};
+
 PanGaea.orchestrate = function() {
   var r = arguments[0];
   var k = arguments[1];
   var n = arguments[2];
+
     if (n > 11 && n < 24) n = n - 12;
     if (n > 23) n = n - 24;
+
   var m = this.Psalmodicon[k].split(" ")[n];
+
     if (!m) {
       m = "m-";
     }
@@ -150,99 +221,90 @@ PanGaea.orchestrate = function() {
         } i++;
       }
     }
+
   var t = new Date().getTime();
   var h = k + "-" + this.TuningPegs + "-" + m + t;
+
   var a = this.Scordatura.slice(0, this.Scordatura.length);
   var s = this.Shadjam(this.Sampurna(k), n);
+
   var x = document.getElementById(r);
-  var y = x.getElementsByTagName("dt")[0];
-    y.textContent = h;
-  var d = x.getElementsByTagName("dd");
+    x.firstChild.nextSibling.textContent = h;
+
+  var y = x.childNodes[2].nextSibling.tagName;
+  var d = x.getElementsByTagName(y);
+
   for (var i = 0; i < d.length; i++) {
+    if (!a[i]) break;
     d[i].textContent = this.Graphiato[a[i]](s);
   }
 };
 
-PanGaea.ndxP = function(k) {
-  var a = this.Psalmodicon[k].split(" ");
-  for (var i = 0; i < a.length; i++) {
-    if (a[i] !== "__") return i;
-  }
-};
-
 PanGaea.BuShou = function(k, q, r) {
+  // default tuning
   if (this.Scordatura.length === 0) {
     this.setPegBox("beadgcf");
   }
+
   var n = this.ndxP(k);
   var s = k + " " + n.toString();
+
+  var d = document.getElementById(q);
+    d.value = s;
+
   var a = s.split(" ");
-  document.getElementById(q).value = s;
   this.orchestrate(r, a[0], a[1]);
 };
 
 PanGaea.CartoGraph = function(q, r) {
-  var s = document.getElementById(q).value;
-  var a = s.split(" ");
+  var o = document.getElementById(q);
+  var a = o.value.split(" ");
   this.orchestrate(r, a[0], a[1]);
 };
 
-PanGaea.setPegBox = function(s) {
-  var a = ["bj","fn","cn","gn","dn","an","en","bn","fk"];
-  var i, c;
-  var n = this.Scordatura.length;
-    if (n > 0) {
-      i = n;
-      while (i > 0) {
-        this.Scordatura.pop();
-        i--;
-      }
-    }
-  switch(s) {
-    case "beadgcf":
-      c = a.slice(1, 8);
-      i = 0;
-      while (i < c.length) {
-        this.Scordatura.push(c[i]);
-        i++;
-      }
-      this.TuningPegs = s;
-      break;
-    case "cgdae":
-      c = a.slice(2, 7).reverse();
-      i = 0;
-      while (i < c.length) {
-        this.Scordatura.push(c[i]);
-        i++;
-      }
-      this.TuningPegs = s;
-      break;
-    case "eadgbe":
-      c = a.slice(6, 8).concat(a.slice(3, 7));
-      i = 0;
-      while (i < c.length) {
-        this.Scordatura.push(c[i]);
-        i++;
-      }
-      this.TuningPegs = s;
-      break;
-    default:
-      this.Scordatura = ["dn","bj","fk","dn","bj","fk"];
-      this.TuningPegs = "fkbjdn";
-  }
-};
-
-PanGaea.secateurs = function(r, t, n) {
+PanGaea.secateurs = function(r) {
   var o = document.getElementById(r);
+  var t = o.childNodes[2].nextSibling.tagName;
   var d = o.getElementsByTagName(t);
+  var n = d.length;
   for (var i = 0; i < n; i++) {
     d[i].textContent = "";
   }
 };
 
 PanGaea.cultivate = function(s, q, r) {
-  this.secateurs(r, "dd", 7);
+  var o = document.getElementById(q);
+  var a = o.value.split(" ");
+  this.secateurs(r);
   this.setPegBox(s);
-  this.BuShou("n0", q, r);
+  this.BuShou(a[0], q, r);
 };
+
+PanGaea.auricular = {};
+
+PanGaea.auricular.ossicle = function(f, r, x, y) {
+  var o = document.getElementById(r);
+  o.addEventListener("click", function() {
+    PanGaea[f](x, y);
+  });
+};
+
+PanGaea.auricular.cochlea = function(f, r, u, x, y) {
+  var o = document.getElementById(r);
+  var b = o.getElementsByTagName(u);
+
+  function p(n) {
+    var s = b[n].textContent;
+    b[n].addEventListener("click", function() {
+      PanGaea[f](s, x, y);
+    });
+  }
+  var i = 0;
+  while (i < b.length) {
+    p(i);
+    i++;
+  }
+};
+
+Object.freeze(PanGaea.auricular);
 

@@ -18,8 +18,8 @@ article#hedgerow {
 section#pergola {
   text-align: center;
 }
-section#pergola input#veranda {
-  width: 7em;
+section#pergola input {
+  width: 6.6em;
   margin: 0;
   border: 1px solid #a9a9a9;
   border-radius: 4px;
@@ -28,8 +28,17 @@ section#pergola input#veranda {
   font-family: monospace;
   font-size: 16px;
 }
+section#pergola input#gambrel {
+  background-color: transparent;
+}
+section#pergola input#gambrel:hover {
+  border-color: #808080;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
 section#pergola button {
-  width: 7em;
+  width: 6.6em;
   margin: 0;
   border: 1px solid #a9a9a9;
   border-radius: 4px;
@@ -79,12 +88,14 @@ section#terrace table#gazebo {
   border: 1px dotted transparent;
 }
 section#terrace table#gazebo button {
+  width: 4.8em;
   border: 1px solid #a9a9a9;
   border-radius: 6px;
   background-color: transparent;
   padding: 0.3em;
+  overflow: hidden;
   font-family: monospace;
-  font-size: 15px;
+  font-size: 14px;
   color: #2f4f4f;
 }
 section#terrace table#gazebo button:hover {
@@ -99,12 +110,12 @@ section#terrace table#gazebo button:hover {
     margin: 1% auto;
     padding: 0;
   }
-  section#pergola input#veranda {
-    width: 6.5em;
+  section#pergola input {
+    width: 6.4em;
     padding: 0.1em;
   }
   section#pergola button {
-    width: 6.5em;
+    width: 6.4em;
     padding: 0.1em;
   }
   section#pavilion {
@@ -121,8 +132,10 @@ section#terrace table#gazebo button:hover {
     font-size: 0.8em;
   }
   section#terrace table#gazebo button {
+    width: 4.6em;
+    border-radius: 4px;
     padding: 0.15em;
-    font-size: 0.8em;
+    font-size: 0.75em;
   }
 }
 
