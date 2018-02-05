@@ -93,6 +93,7 @@ PanGaea.Psalmodicon = {
     k2j56y7: "yr __ __ qz vv zq to __ ry wu __ __ "
 };
 
+
 PanGaea.Graphiato = {
     fj: function(qp) {return this.en(qp)},
     cj: function(qp) {return this.bn(qp)},
@@ -116,6 +117,7 @@ PanGaea.Graphiato = {
     ek: function(qp) {return this.fn(qp)},
     bk: function(qp) {return this.cn(qp)}
 };
+
 
 PanGaea.setPegBox = function(s) {
   var a = ["bj","fn","cn","gn","dn","an","en","bn","fk"];
@@ -167,6 +169,7 @@ PanGaea.setPegBox = function(s) {
   }
 };
 
+
 PanGaea.ndxP = function(k) {
   var a = this.Psalmodicon[k].split(" ");
   var s = "__";
@@ -185,6 +188,7 @@ PanGaea.ndxP = function(k) {
   }
 };
 
+
 PanGaea.Sampurna = function(k) {
   var s = this.Psalmodicon[k];
   var r = s.replace(/[a-z]{2}/gi, "\u56D7");
@@ -192,11 +196,13 @@ PanGaea.Sampurna = function(k) {
   return v.split(" ");
 };
 
+
 PanGaea.Shadjam = function(a, n) {
   var v = a.slice(0, a.length);
   v[n] = "\u56DE";
   return v.join(" ") + " ";
 };
+
 
 PanGaea.orchestrate = function() {
   var r = arguments[0];
@@ -240,6 +246,7 @@ PanGaea.orchestrate = function() {
   }
 };
 
+
 PanGaea.BuShou = function(k, q, r) {
   // default tuning
   if (this.Scordatura.length === 0) {
@@ -256,11 +263,13 @@ PanGaea.BuShou = function(k, q, r) {
   this.orchestrate(r, a[0], a[1]);
 };
 
+
 PanGaea.CartoGraph = function(q, r) {
   var o = document.getElementById(q);
   var a = o.value.split(" ");
   this.orchestrate(r, a[0], a[1]);
 };
+
 
 PanGaea.secateurs = function(r) {
   var o = document.getElementById(r);
@@ -272,6 +281,7 @@ PanGaea.secateurs = function(r) {
   }
 };
 
+
 PanGaea.cultivate = function(s, q, r) {
   var o = document.getElementById(q);
   var a = o.value.split(" ");
@@ -280,7 +290,9 @@ PanGaea.cultivate = function(s, q, r) {
   this.BuShou(a[0], q, r);
 };
 
+
 PanGaea.auricular = {};
+
 
 PanGaea.auricular.ossicle = function(f, r, x, y) {
   var o = document.getElementById(r);
@@ -288,6 +300,7 @@ PanGaea.auricular.ossicle = function(f, r, x, y) {
     PanGaea[f](x, y);
   });
 };
+
 
 PanGaea.auricular.cochlea = function(f, r, u, x, y) {
   var o = document.getElementById(r);
@@ -306,5 +319,4 @@ PanGaea.auricular.cochlea = function(f, r, u, x, y) {
   }
 };
 
-Object.freeze(PanGaea.auricular);
 
