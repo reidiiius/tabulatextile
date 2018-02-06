@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fffaf0;
+  background-color: #fffff0;
   font-family: monospace;
   font-size: 18px;
   color: #2f4f4f;
@@ -13,7 +13,7 @@ article#hedgerow {
   margin: 2% auto;
   border: 1px solid #f5deb3;
   border-radius: 6px;
-  background-color: #fff8dc;
+  background-color: #fffaf0;
   padding: 2px 0;
   overflow: hidden;
 }

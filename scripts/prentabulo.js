@@ -292,32 +292,3 @@ PanGaea.cultivate = function(s, q, r) {
 };
 
 
-PanGaea.auricular = {};
-
-
-PanGaea.auricular.ossicle = function(f, r, x, y) {
-  var o = document.getElementById(r);
-  o.addEventListener("click", function() {
-    PanGaea[f](x, y);
-  });
-};
-
-
-PanGaea.auricular.cochlea = function(f, r, u, x, y) {
-  var o = document.getElementById(r);
-  var b = o.getElementsByTagName(u);
-
-  function p(n) {
-    var s = b[n].textContent;
-    b[n].addEventListener("click", function() {
-      PanGaea[f](s, x, y);
-    });
-  }
-  var i = 0;
-  while (i < b.length) {
-    p(i);
-    i++;
-  }
-};
-
-
