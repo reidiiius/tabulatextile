@@ -2,71 +2,78 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fffff0;
+  background-color: #fffaf0;
   font-family: monospace;
   font-size: 18px;
   color: #2f4f4f;
 }
 article#hedgerow {
-  border: 1px dotted #d3d3d3;
   width: 30em;
   height: 30em;
   margin: 2% auto;
-  padding: 4px 0;
+  border: 1px solid #f5deb3;
+  border-radius: 6px;
+  background-color: #fff8dc;
+  padding: 2px 0;
   overflow: hidden;
 }
 section#pergola {
+  padding: 2px;
   text-align: center;
 }
 section#pergola input {
   width: 6.6em;
   margin: 0;
-  border: 1px solid #a9a9a9;
+  border: 1px solid #deb887;
   border-radius: 4px;
   padding: 0.2em;
   text-align: center;
   font-family: monospace;
   font-size: 16px;
+  color: #708090;
 }
 section#pergola input#gambrel {
-  background-color: transparent;
+  background-color: #fffff0;
 }
 section#pergola input#gambrel:hover {
-  border-color: #808080;
+  border-color: #d2b48c;
   background-color: #ffffff;
-  color: #000000;
+  color: #2f4f4f;
   cursor: pointer;
 }
 section#pergola button {
   width: 6.6em;
   margin: 0;
-  border: 1px solid #a9a9a9;
+  border: 1px solid #deb887;
   border-radius: 4px;
   padding: 0.2em;
-  background-color: transparent;
+  background-color: #fffff0;
   font-family: monospace;
   font-size: 16px;
-  color: #2f4f4f;
+  color: #708090;
 }
 section#pergola button:hover {
-  border-color: #808080;
+  border-color: #d2b48c;
   background-color: #ffffff;
-  color: #000000;
+  color: #2f4f4f;
   cursor: pointer;
 }
 section#pavilion {
   width: 21em;
   height: 11em;
   margin: 2px auto;
-  border: 1px dotted #d3d3d3;
+  border: 1px solid #f5deb3;
+  background-color: #fffff0;
   overflow: hidden;
   text-align: center;
   font-size: 24px;
+  color: #2f4f4f;
 }
 dl.lattice {
   width: 19em;
   margin: 0.66em auto;
-  border: 1px dotted transparent;
+  border: 1px solid transparent;
+  background-color: #fffff0;
   padding: 0;
   line-height: 1.2;
   white-space: nowrap;
@@ -75,40 +82,55 @@ dl.lattice {
 dl.lattice dt {
   padding: 2px;
   font-size: 20px;
-  color: #696969;
+  color: #8fbc8f;
 }
 dl.lattice dd {
   margin: 0;
 }
 section#terrace {
+  background-color: transparent;
   text-align: center;
 }
 section#terrace table#gazebo {
   margin: 0 auto;
-  border: 1px dotted transparent;
+  border: 1px solid transparent;
+  background-color: #fdf5e6;
 }
 section#terrace table#gazebo button {
   width: 4.8em;
-  border: 1px solid #a9a9a9;
+  border: 1px solid #deb887;
   border-radius: 6px;
-  background-color: transparent;
-  padding: 0.3em;
+  background-color: #fffff0;
+  padding: 0.4em 0.3em;
   overflow: hidden;
   font-family: monospace;
   font-size: 14px;
-  color: #2f4f4f;
+  color: #708090;
 }
 section#terrace table#gazebo button:hover {
-  border-color: #808080;
+  border-color: #d2b48c;
   background-color: #ffffff;
-  color: #000000;
+  color: #2f4f4f;
   cursor: pointer;
 }
-@media screen and (max-width: 500px) {
+footer#footnote {
+  padding: 0;
+}
+footer#footnote p.legal {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #808080;
+}
+@media screen and (max-width: 540px) {
   article#hedgerow {
     width: 98%;
     margin: 1% auto;
-    padding: 0;
+    padding: 1% 0;
+  }
+  section#pergola {
+    padding: 1px;
+    font-size: 0.66em;
   }
   section#pergola input {
     width: 6.4em;
@@ -121,21 +143,19 @@ section#terrace table#gazebo button:hover {
   section#pavilion {
     width: 96%;
     margin: 1% auto;
-    font-size: 1.3em;
   }
   dl.lattice {
     width: 94%;
     margin: 1% auto;
+    font-size: 0.9em;
   }
   dl.lattice dt {
     padding: 1%;
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
   section#terrace table#gazebo button {
-    width: 4.6em;
     border-radius: 4px;
-    padding: 0.15em;
-    font-size: 0.75em;
+    font-size: 0.69em;
   }
 }
 

@@ -218,11 +218,11 @@ PanGaea.orchestrate = function() {
       m = "m-";
     }
     if (m === "__") {
-      var a = ["cn","ck","dn","dk","en","fn","fk","gn","gk","an","ak","bn"];
+      var p = ["cn","ck","dn","dk","en","fn","fk","gn","gk","an","ak","bn"];
       var i = 0;
-      while (i < a.length) {
+      while (i < p.length) {
         if (n == i) {
-          m = a[i];
+          m = p[i];
           break;
         } i++;
       }
@@ -231,7 +231,8 @@ PanGaea.orchestrate = function() {
   var t = new Date().getTime();
   var h = k + "-" + this.TuningPegs + "-" + m + t;
 
-  var a = this.Scordatura.slice(0, this.Scordatura.length);
+  var w = this.Scordatura.length;
+  var a = this.Scordatura.slice(0, w);
   var s = this.Shadjam(this.Sampurna(k), n);
 
   var x = document.getElementById(r);
@@ -240,7 +241,7 @@ PanGaea.orchestrate = function() {
   var y = x.childNodes[2].nextSibling.tagName;
   var d = x.getElementsByTagName(y);
 
-  for (var i = 0; i < d.length; i++) {
+  for (var i = 0; i < w; i++) {
     if (!a[i]) break;
     d[i].textContent = this.Graphiato[a[i]](s);
   }
