@@ -4,50 +4,51 @@
 var NeoPanGaea = Object.create(PanGaea);
 
 
-NeoPanGaea.dupliTacit = function() {
-  var s = "",
-      b = "__ ",
-      i = 0;
-  while (i < 12) {
-    s += b;
-    i++;
+NeoPanGaea.deadPan = function() {
+  var necklace = "",
+      trigraph = "__ ",
+      cycle = 0;
+  while (cycle < 12) {
+    necklace += trigraph;
+    cycle++;
   }
-  return s;
+  return necklace;
 };
 
 
-NeoPanGaea.Psalmodicon.z0 = NeoPanGaea.dupliTacit();
+NeoPanGaea.Psalmodicon.z0 = NeoPanGaea.deadPan();
 
 
-NeoPanGaea.ossicle = function(r, x, y) {
-  var o = document.getElementById(r);
-  o.addEventListener("click", function() {
-    NeoPanGaea.CartoGraph(x, y);
+NeoPanGaea.ossicle = function(venue, portico, fabric) {
+  var handle = document.getElementById(venue);
+  handle.addEventListener("click", function() {
+    NeoPanGaea.CartoGraph(portico, fabric);
   });
 };
 
 
-NeoPanGaea.cochlea = function(f, r, u, x, y) {
-  var o = document.getElementById(r);
-  var b = o.getElementsByTagName(u);
+NeoPanGaea.cochlea = function(task, venue, toggle, portico, fabric) {
+  var handle = document.getElementById(venue);
+  var device = handle.getElementsByTagName(toggle);
 
-  function p(n) {
-    var s = b[n].textContent;
-    b[n].addEventListener("click", function() {
-      NeoPanGaea[f](s, x, y);
+  function tympani(integer) {
+    var moniker = device[integer].textContent;
+    device[integer].addEventListener("click", function() {
+      NeoPanGaea[task](moniker, portico, fabric);
     });
   }
-  var i = 0;
-  while (i < b.length) {
-    p(i);
-    i++;
+  var cycle = 0;
+  while (cycle < device.length) {
+    tympani(cycle);
+    cycle++;
   }
 };
 
 
-  NeoPanGaea.BuShou("n0","veranda","trellis");
-  NeoPanGaea.ossicle("gambrel","veranda","trellis");
-  NeoPanGaea.cochlea("cultivate","pergola","button","veranda","trellis");
-  NeoPanGaea.cochlea("BuShou","gazebo","button","veranda","trellis");
+// initialize
+  NeoPanGaea.EntryWay("n0", "veranda", "trellis");
+  NeoPanGaea.ossicle("gambrel", "veranda", "trellis");
+  NeoPanGaea.cochlea("cultivate", "pergola", "button", "veranda", "trellis");
+  NeoPanGaea.cochlea("EntryWay", "gazebo", "button", "veranda", "trellis");
 
 
