@@ -118,48 +118,41 @@ PanGaea.Graphiato = {
     bk: function(qp) {return this.cn(qp)}
 };
 
+PanGaea.reCord = function(calibrate, item, replica) {
+  this.TuningPegs = calibrate;
+  while (item < replica.length) {
+    this.Scordatura.push(replica[item]);
+    item++;
+  }
+};
 
 PanGaea.setPegBox = function(calibrate) {
-  var ennead = ["bj","fn","cn","gn","dn","an","en","bn","fk"];
-  var item, replica;
   var extent = this.Scordatura.length;
+  var pouch = new Array(extent);
 
-  if (extent > 0) {
-    while (extent > 0) {
-      this.Scordatura.pop();
-      extent--;
-    }
+  while (extent) {
+    pouch[extent-1] = this.Scordatura.pop();
+    extent--;
   }
+
+  var ennead = ["bj","fn","cn","gn","dn","an","en","bn","fk"];
+  var replica = [];
+  var item = 0;
 
   switch(calibrate) {
     case "beadgcf":
       replica = ennead.slice(1, 8);
-      item = 0;
-      while (item < replica.length) {
-        this.Scordatura.push(replica[item]);
-        item++;
-      }
-      this.TuningPegs = calibrate;
+      this.reCord(calibrate, item, replica);
       break;
 
     case "cgdae":
       replica = ennead.slice(2, 7).reverse();
-      item = 0;
-      while (item < replica.length) {
-        this.Scordatura.push(replica[item]);
-        item++;
-      }
-      this.TuningPegs = calibrate;
+      this.reCord(calibrate, item, replica);
       break;
 
     case "eadgbe":
       replica = ennead.slice(6, 8).concat(ennead.slice(3, 7));
-      item = 0;
-      while (item < replica.length) {
-        this.Scordatura.push(replica[item]);
-        item++;
-      }
-      this.TuningPegs = calibrate;
+      this.reCord(calibrate, item, replica);
       break;
 
     default:
@@ -171,15 +164,15 @@ PanGaea.setPegBox = function(calibrate) {
 
 PanGaea.inquire = function(epithet) {
   var chamber = this.Psalmodicon[epithet].split(" ");
-  var vacant = "__";
+  var notacet = /[^_]/;
 
-  if (chamber[0] !== vacant) {
+  if (notacet.test(chamber[0])) {
     return 0;
   }
-  else if (chamber[7] !== vacant) {
+  else if (notacet.test(chamber[7])) {
     return 7;
   }
-  else if (chamber[5] !== vacant) {
+  else if (notacet.test(chamber[5])) {
     return 5;
   }
   else {
@@ -206,43 +199,37 @@ PanGaea.Shadjam = function(collar, amulet) {
 PanGaea.orchestrate = function() {
   var fabric = arguments[0];
   var epithet = arguments[1];
-  var locket = arguments[2];
+  var amulet = parseInt(arguments[2], 10);
 
-    if (locket > 11 && locket < 24) locket = locket - 12;
-    if (locket > 23) locket = locket - 24;
+  if (amulet > 11 && amulet < 24) amulet = amulet - 12;
+  if (amulet > 23 && amulet < 36) amulet = amulet - 24;
 
-  var amalgam = this.Psalmodicon[epithet].split(" ")[locket];
+  var amalgam = this.Psalmodicon[epithet].split(" ")[amulet];
 
-    if (!amalgam) {
-      amalgam = "m-";
-    }
-    if (amalgam === "__") {
-      var notes =["cn","ck","dn","dk","en","fn","fk","gn","gk","an","ak","bn"];
-      var semitone = 0;
-      while (semitone < notes.length) {
-        if (locket == semitone) {
-          amalgam = notes[semitone];
-          break;
-        } semitone++;
-      }
-    }
+  if (!amalgam) {
+    amalgam = "mm";
+  }
+  if (/_+/.test(amalgam)) {
+    var notes = ["cn","ck","dn","dk","en","fn","fk","gn","gk","an","ak","bn"];
+    amalgam = notes[amulet];
+  }
 
   var serial = new Date().getTime();
   var registry = epithet + "-" + this.TuningPegs + "-" + amalgam + serial;
 
   var expanse = this.Scordatura.length;
   var replica = this.Scordatura.slice(0, expanse);
-  var pendant = this.Shadjam(this.Sampurna(epithet), locket);
+  var pendant = this.Shadjam(this.Sampurna(epithet), amulet);
 
-  var deck = document.getElementById(fabric);
-    deck.firstChild.nextSibling.textContent = registry;
+  var lattice = document.getElementById(fabric);
+    lattice.firstChild.nextSibling.textContent = registry;
 
-  var markup = deck.childNodes[2].nextSibling.tagName;
-  var plaza = deck.getElementsByTagName(markup);
+  var truss = lattice.childNodes[2].nextSibling.tagName;
+  var grill = lattice.getElementsByTagName(truss);
 
-  for (var item = 0; item < expanse; item++) {
-    if (!replica[item]) break;
-    plaza[item].textContent = this.Graphiato[replica[item]](pendant);
+  for (var tier = 0; tier < expanse; tier++) {
+    if (!replica[tier]) break;
+    grill[tier].textContent = this.Graphiato[replica[tier]](pendant);
   }
 };
 
@@ -250,22 +237,21 @@ PanGaea.orchestrate = function() {
 // Atrium
 PanGaea.EntryWay = function(epithet, portico, fabric) {
 
-  // default tuning
-  if (this.Scordatura.length === 0) {
+  if (!this.TuningPegs) {
     this.setPegBox("beadgcf");
   }
 
   if (!this.Psalmodicon.hasOwnProperty(epithet)) {
-    var epithet = "n0";
+    epithet = "n0";
   }
 
-  var pendant = this.inquire(epithet);
-  var keynote = epithet + " " + pendant.toString();
+  var amulet = this.inquire(epithet);
+  var datums = epithet + " " + amulet.toString();
 
   var lanai = document.getElementById(portico);
-    lanai.value = keynote;
+    lanai.value = datums;
 
-  var gallery = keynote.split(" ");
+  var gallery = datums.split(" ");
   this.orchestrate(fabric, gallery[0], gallery[1]);
 };
 
@@ -284,12 +270,13 @@ PanGaea.CartoGraph = function(portico, fabric) {
 
 
 PanGaea.secateurs = function(fabric) {
-  var deck = document.getElementById(fabric);
-  var markup = deck.childNodes[2].nextSibling.tagName;
-  var plaza = deck.getElementsByTagName(markup);
-  var expanse = plaza.length;
-  for (var item = 0; item < expanse; item++) {
-    plaza[item].textContent = "";
+  var lattice = document.getElementById(fabric);
+  var truss = lattice.childNodes[2].nextSibling.tagName;
+  var grill = lattice.getElementsByTagName(truss);
+  var expanse = grill.length;
+
+  for (var tier = 0; tier < expanse; tier++) {
+    grill[tier].textContent = "";
   }
 };
 
@@ -297,6 +284,7 @@ PanGaea.secateurs = function(fabric) {
 PanGaea.cultivate = function(calibrate, portico, fabric) {
   var lanai = document.getElementById(portico);
   var gallery = lanai.value.split(" ");
+
   this.secateurs(fabric);
   this.setPegBox(calibrate);
   this.EntryWay(gallery[0], portico, fabric);
