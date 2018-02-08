@@ -1,13 +1,13 @@
 
 "use strict";
 
-var PanGaea = {};
+function PanThalassa() {
 
-PanGaea.Scordatura = [];
+  this.Scordatura = [];
 
-PanGaea.TuningPegs = "";
+  this.TuningPegs = "";
 
-PanGaea.Psalmodicon = {
+  this.Psalmodicon = {
          j2: "vv zq __ __ ry wu __ uw __ sx __ qz ",
          j3: "vt __ tv xq __ ws __ uu __ sw __ qx ",
          j5: "wr __ ut __ sv oq qo __ __ tu __ rw ",
@@ -91,34 +91,42 @@ PanGaea.Psalmodicon = {
     j3k56x4: "vo __ ty xu __ __ __ ux yt __ ov qq ",
     k1j56y7: "__ ux yt __ ov qq vo __ ty xu __ __ ",
     k2j56y7: "yr __ __ qz vv zq to __ ry wu __ __ "
+  };
+}
+
+
+PanThalassa.prototype.graphiato = {
+  fj: function(qp) {return this.en(qp)},
+  cj: function(qp) {return this.bn(qp)},
+  gj: function(qp) {return this.fk(qp)},
+  dj: function(qp) {return this.ck(qp)},
+  aj: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
+  ej: function(qp) {return(qp.slice( 6,24).concat(qp.slice(0, 6)))},
+  bj: function(qp) {return(qp.slice(20,24).concat(qp.slice(0,20)))},
+  fn: function(qp) {return(qp.slice(10,24).concat(qp.slice(0,10)))},
+  cn: function(qp) {return(qp.slice( 0,24).concat(qp.slice(0, 0)))},
+  gn: function(qp) {return(qp.slice(14,24).concat(qp.slice(0,14)))},
+  dn: function(qp) {return(qp.slice( 4,24).concat(qp.slice(0, 4)))},
+  an: function(qp) {return(qp.slice(18,24).concat(qp.slice(0,18)))},
+  en: function(qp) {return(qp.slice( 8,24).concat(qp.slice(0, 8)))},
+  bn: function(qp) {return(qp.slice(22,24).concat(qp.slice(0,22)))},
+  fk: function(qp) {return(qp.slice(12,24).concat(qp.slice(0,12)))},
+  ck: function(qp) {return(qp.slice( 2,24).concat(qp.slice(0, 2)))},
+  gk: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
+  dk: function(qp) {return this.ej(qp)},
+  ak: function(qp) {return this.bj(qp)},
+  ek: function(qp) {return this.fn(qp)},
+  bk: function(qp) {return this.cn(qp)}
 };
 
 
-PanGaea.Graphiato = {
-    fj: function(qp) {return this.en(qp)},
-    cj: function(qp) {return this.bn(qp)},
-    gj: function(qp) {return this.fk(qp)},
-    dj: function(qp) {return this.ck(qp)},
-    aj: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
-    ej: function(qp) {return(qp.slice( 6,24).concat(qp.slice(0, 6)))},
-    bj: function(qp) {return(qp.slice(20,24).concat(qp.slice(0,20)))},
-    fn: function(qp) {return(qp.slice(10,24).concat(qp.slice(0,10)))},
-    cn: function(qp) {return(qp.slice( 0,24).concat(qp.slice(0, 0)))},
-    gn: function(qp) {return(qp.slice(14,24).concat(qp.slice(0,14)))},
-    dn: function(qp) {return(qp.slice( 4,24).concat(qp.slice(0, 4)))},
-    an: function(qp) {return(qp.slice(18,24).concat(qp.slice(0,18)))},
-    en: function(qp) {return(qp.slice( 8,24).concat(qp.slice(0, 8)))},
-    bn: function(qp) {return(qp.slice(22,24).concat(qp.slice(0,22)))},
-    fk: function(qp) {return(qp.slice(12,24).concat(qp.slice(0,12)))},
-    ck: function(qp) {return(qp.slice( 2,24).concat(qp.slice(0, 2)))},
-    gk: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
-    dk: function(qp) {return this.ej(qp)},
-    ak: function(qp) {return this.bj(qp)},
-    ek: function(qp) {return this.fn(qp)},
-    bk: function(qp) {return this.cn(qp)}
+PanThalassa.prototype.chronos = function() {
+  var epoch = new Date().getTime();
+  return epoch;
 };
 
-PanGaea.reCord = function(calibrate, item, replica) {
+
+PanThalassa.prototype.reCord = function(calibrate, item, replica) {
   this.TuningPegs = calibrate;
   while (item < replica.length) {
     this.Scordatura.push(replica[item]);
@@ -126,7 +134,8 @@ PanGaea.reCord = function(calibrate, item, replica) {
   }
 };
 
-PanGaea.setPegBox = function(calibrate) {
+
+PanThalassa.prototype.setPegBox = function(calibrate) {
   var extent = this.Scordatura.length;
   var pouch = new Array(extent);
 
@@ -162,7 +171,7 @@ PanGaea.setPegBox = function(calibrate) {
 };
 
 
-PanGaea.inquire = function(epithet) {
+PanThalassa.prototype.inquire = function(epithet) {
   var chamber = this.Psalmodicon[epithet].split(" ");
   var notacet = /[^_]/;
 
@@ -181,7 +190,7 @@ PanGaea.inquire = function(epithet) {
 };
 
 
-PanGaea.Sampurna = function(epithet) {
+PanThalassa.prototype.sampurna = function(epithet) {
   var necklace = this.Psalmodicon[epithet];
   var bracelet = necklace.replace(/[a-z]{2}/gi, "\u56D7");
   var beadwork = bracelet.replace(/__/g, "\u4E00");
@@ -189,14 +198,14 @@ PanGaea.Sampurna = function(epithet) {
 };
 
 
-PanGaea.Shadjam = function(collar, amulet) {
+PanThalassa.prototype.shadjam = function(collar, amulet) {
   var necklace = collar.slice(0, collar.length);
   necklace[amulet] = "\u56DE";
   return necklace.join(" ") + " ";
 };
 
 
-PanGaea.orchestrate = function() {
+PanThalassa.prototype.orchestrate = function() {
   var fabric = arguments[0];
   var epithet = arguments[1];
   var amulet = parseInt(arguments[2], 10);
@@ -214,12 +223,12 @@ PanGaea.orchestrate = function() {
     amalgam = notes[amulet];
   }
 
-  var serial = new Date().getTime();
+  var serial = this.chronos();
   var registry = epithet + "-" + this.TuningPegs + "-" + amalgam + serial;
 
   var expanse = this.Scordatura.length;
   var replica = this.Scordatura.slice(0, expanse);
-  var pendant = this.Shadjam(this.Sampurna(epithet), amulet);
+  var pendant = this.shadjam(this.sampurna(epithet), amulet);
 
   var lattice = document.getElementById(fabric);
     lattice.firstChild.nextSibling.textContent = registry;
@@ -229,10 +238,12 @@ PanGaea.orchestrate = function() {
 
   for (var tier = 0; tier < expanse; tier++) {
     if (!replica[tier]) break;
-    grill[tier].textContent = this.Graphiato[replica[tier]](pendant);
+    grill[tier].textContent = this.graphiato[replica[tier]](pendant);
   }
 };
 
+
+var PanGaea = new PanThalassa();
 
 // Atrium
 PanGaea.EntryWay = function(epithet, portico, fabric) {
