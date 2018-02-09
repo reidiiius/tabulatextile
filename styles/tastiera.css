@@ -64,6 +64,7 @@ section#pavilion {
   margin: 2px auto;
   border: 1px solid #f5deb3;
   background-color: #fffff0;
+  padding: 0;
   overflow: hidden;
   text-align: center;
   font-size: 24px;

@@ -281,7 +281,6 @@ PanThalassa.prototype.entryWay = function(epithet) {
 
 
 PanThalassa.prototype.cartoGraph = function() {
-
   var boundary = document.getElementById(this.LandScape);
   var lanai = boundary.getElementsByTagName("input")[0];
   var gallery = lanai.value.split(" ");

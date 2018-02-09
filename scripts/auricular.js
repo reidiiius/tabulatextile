@@ -6,50 +6,41 @@ var LaurAsia = new PanThalassa("hedgerow");
 LaurAsia.Psalmodicon.z0 = LaurAsia.deadPan();
 
 
-LaurAsia.ossicle = function(venue) {
-  var handle = document.getElementById(venue);
+LaurAsia.ossicle = function() {
+  var boundary = document.getElementById(this.LandScape);
+  var handle = boundary.getElementsByTagName("input")[1];
+
   handle.addEventListener("click", function() {
     LaurAsia.cartoGraph();
   });
 };
 
 
-LaurAsia.cochlea = function(task, venue, toggle) {
-  var handle = document.getElementById(venue);
-  var device = handle.getElementsByTagName(toggle);
+LaurAsia.cochlea = function() {
+  var boundary = document.getElementById(this.LandScape);
+  var handle = boundary.getElementsByTagName("button");
 
-  function tympani(integer) {
-    var moniker = "";
-
-    if (device[integer].hasAttribute("data-signat")) {
-      if (device[integer].dataset) {
-        moniker = device[integer].dataset.signat;
-      }
-      else {
-        moniker = device[integer].getAttribute("data-signat");
-      }
-    }
-    else {
-      moniker = device[integer].textContent;
-    }
-
-    device[integer].addEventListener("click", function() {
+  function tympani(task, segment) {
+    var moniker = handle[segment].textContent;
+    handle[segment].addEventListener("click", function() {
       LaurAsia[task](moniker);
     });
   }
 
-  var cycle = 0;
-  while (cycle < device.length) {
-    tympani(cycle);
-    cycle++;
+  for (var abicus = 0; abicus < 44; abicus++) {
+    if (abicus < 2) {
+      tympani("cultivate", abicus);
+    }
+    else {
+      tympani("entryWay", abicus);
+    }
   }
 };
 
 
 // initialize
   LaurAsia.entryWay("n0"); 
-  LaurAsia.ossicle("gambrel");
-  LaurAsia.cochlea("cultivate", "pergola", "button");
-  LaurAsia.cochlea("entryWay", "gazebo", "button");
+  LaurAsia.ossicle();
+  LaurAsia.cochlea();
 
 
