@@ -1,7 +1,9 @@
 
 "use strict";
 
-function PanThalassa() {
+function PanThalassa(terrane) {
+
+  this.LandScape = terrane;
 
   this.Scordatura = [];
 
@@ -205,10 +207,21 @@ PanThalassa.prototype.shadjam = function(collar, amulet) {
 };
 
 
+PanThalassa.prototype.deadPan = function() {
+  var necklace = "",
+      trigraph = "__ ",
+      cycle = 0;
+  while (cycle < 12) {
+    necklace += trigraph;
+    cycle++;
+  }
+  return necklace;
+};
+
+
 PanThalassa.prototype.orchestrate = function() {
-  var fabric = arguments[0];
-  var epithet = arguments[1];
-  var amulet = parseInt(arguments[2], 10);
+  var epithet = arguments[0];
+  var amulet = parseInt(arguments[1], 10);
 
   if (amulet > 11 && amulet < 24) amulet = amulet - 12;
   if (amulet > 23 && amulet < 36) amulet = amulet - 24;
@@ -230,7 +243,8 @@ PanThalassa.prototype.orchestrate = function() {
   var replica = this.Scordatura.slice(0, expanse);
   var pendant = this.shadjam(this.sampurna(epithet), amulet);
 
-  var lattice = document.getElementById(fabric);
+  var boundary = document.getElementById(this.LandScape);
+  var lattice = boundary.getElementsByTagName("dl")[0];
     lattice.firstChild.nextSibling.textContent = registry;
 
   var truss = lattice.childNodes[2].nextSibling.tagName;
@@ -243,10 +257,8 @@ PanThalassa.prototype.orchestrate = function() {
 };
 
 
-var PanGaea = new PanThalassa();
-
 // Atrium
-PanGaea.EntryWay = function(epithet, portico, fabric) {
+PanThalassa.prototype.entryWay = function(epithet) {
 
   if (!this.TuningPegs) {
     this.setPegBox("beadgcf");
@@ -259,16 +271,19 @@ PanGaea.EntryWay = function(epithet, portico, fabric) {
   var amulet = this.inquire(epithet);
   var datums = epithet + " " + amulet.toString();
 
-  var lanai = document.getElementById(portico);
+  var boundary = document.getElementById(this.LandScape);
+  var lanai = boundary.getElementsByTagName("input")[0];
     lanai.value = datums;
 
   var gallery = datums.split(" ");
-  this.orchestrate(fabric, gallery[0], gallery[1]);
+  this.orchestrate(gallery[0], gallery[1]);
 };
 
 
-PanGaea.CartoGraph = function(portico, fabric) {
-  var lanai = document.getElementById(portico);
+PanThalassa.prototype.cartoGraph = function() {
+
+  var boundary = document.getElementById(this.LandScape);
+  var lanai = boundary.getElementsByTagName("input")[0];
   var gallery = lanai.value.split(" ");
 
   if (!this.Psalmodicon.hasOwnProperty(gallery[0])) {
@@ -276,12 +291,13 @@ PanGaea.CartoGraph = function(portico, fabric) {
     gallery = lanai.value.split(" ");
   }
 
-  this.orchestrate(fabric, gallery[0], gallery[1]);
+  this.orchestrate(gallery[0], gallery[1]);
 };
 
 
-PanGaea.secateurs = function(fabric) {
-  var lattice = document.getElementById(fabric);
+PanThalassa.prototype.secateurs = function() {
+  var boundary = document.getElementById(this.LandScape);
+  var lattice = boundary.getElementsByTagName("dl")[0];
   var truss = lattice.childNodes[2].nextSibling.tagName;
   var grill = lattice.getElementsByTagName(truss);
   var expanse = grill.length;
@@ -292,13 +308,14 @@ PanGaea.secateurs = function(fabric) {
 };
 
 
-PanGaea.cultivate = function(calibrate, portico, fabric) {
-  var lanai = document.getElementById(portico);
+PanThalassa.prototype.cultivate = function(calibrate) {
+  var boundary = document.getElementById(this.LandScape);
+  var lanai = boundary.getElementsByTagName("input")[0];
   var gallery = lanai.value.split(" ");
 
-  this.secateurs(fabric);
+  this.secateurs();
   this.setPegBox(calibrate);
-  this.EntryWay(gallery[0], portico, fabric);
+  this.entryWay(gallery[0]);
 };
 
 

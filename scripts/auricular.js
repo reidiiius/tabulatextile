@@ -1,42 +1,43 @@
 
 "use strict";
 
-var LaurAsia = Object.create(PanGaea);
-
-
-LaurAsia.deadPan = function() {
-  var necklace = "",
-      trigraph = "__ ",
-      cycle = 0;
-  while (cycle < 12) {
-    necklace += trigraph;
-    cycle++;
-  }
-  return necklace;
-};
-
+var LaurAsia = new PanThalassa("hedgerow");
 
 LaurAsia.Psalmodicon.z0 = LaurAsia.deadPan();
 
 
-LaurAsia.ossicle = function(venue, portico, fabric) {
+LaurAsia.ossicle = function(venue) {
   var handle = document.getElementById(venue);
   handle.addEventListener("click", function() {
-    LaurAsia.CartoGraph(portico, fabric);
+    LaurAsia.cartoGraph();
   });
 };
 
 
-LaurAsia.cochlea = function(task, venue, toggle, portico, fabric) {
+LaurAsia.cochlea = function(task, venue, toggle) {
   var handle = document.getElementById(venue);
   var device = handle.getElementsByTagName(toggle);
 
   function tympani(integer) {
-    var moniker = device[integer].textContent;
+    var moniker = "";
+
+    if (device[integer].hasAttribute("data-signat")) {
+      if (device[integer].dataset) {
+        moniker = device[integer].dataset.signat;
+      }
+      else {
+        moniker = device[integer].getAttribute("data-signat");
+      }
+    }
+    else {
+      moniker = device[integer].textContent;
+    }
+
     device[integer].addEventListener("click", function() {
-      LaurAsia[task](moniker, portico, fabric);
+      LaurAsia[task](moniker);
     });
   }
+
   var cycle = 0;
   while (cycle < device.length) {
     tympani(cycle);
@@ -46,9 +47,9 @@ LaurAsia.cochlea = function(task, venue, toggle, portico, fabric) {
 
 
 // initialize
-  LaurAsia.EntryWay("n0", "veranda", "trellis");
-  LaurAsia.ossicle("gambrel", "veranda", "trellis");
-  LaurAsia.cochlea("cultivate", "pergola", "button", "veranda", "trellis");
-  LaurAsia.cochlea("EntryWay", "gazebo", "button", "veranda", "trellis");
+  LaurAsia.entryWay("n0"); 
+  LaurAsia.ossicle("gambrel");
+  LaurAsia.cochlea("cultivate", "pergola", "button");
+  LaurAsia.cochlea("entryWay", "gazebo", "button");
 
 
