@@ -9,6 +9,51 @@ function PanThalassa(terrane) {
 
   this.TuningPegs = "";
 
+  this.KeyStone = {
+    "j136y7"  : "k135x4",
+    "j167y2"  : "k345x2",
+    "j17"     : "k34",
+    "j17y2"   : "k34x2",
+    "j2"      : "k2",
+    "j23"     : "k12",
+    "j236"    : "k125",
+    "j23k6"   : "k12j5",
+    "j246y3"  : "k257x1",
+    "j26"     : "k25",
+    "j26y3"   : "k25x1",
+    "j26y34"  : "k25x17",
+    "j2k56"   : "k2j56",
+    "j2k56x4" : "k2j56y7",
+    "j2k6"    : "k2j5",
+    "j2k6x5"  : "k2j5y6",
+    "j2k6y3"  : "k2j5x1",
+    "j2y3"    : "k2x1",
+    "j3"      : "k1",
+    "j34k6"   : "k17j5",
+    "j36"     : "k15",
+    "j3k56x4" : "k1j56y7",
+    "j3k5x4"  : "k1j6y7",
+    "j3k6"    : "k1j5",
+    "j6"      : "k5",
+    "k157x6"  : "j346y5",
+    "k1j6"    : "j3k5",
+    "k256"    : "j256",
+    "k26"     : "j25",
+    "k26x5"   : "j25y6",
+    "k2j17"   : "j2k34",
+    "k2j6"    : "j2k5",
+    "k56"     : "j56",
+    "k56x4"   : "j56y7",
+    "k6"      : "j5",
+    "k6x5"    : "j5y6",
+    "n0"      : "n0",
+    "n167x4"  : "n345y7",
+    "n26y5"   : "n25x6",
+    "n345"    : "n167",
+    "n45y2"   : "n67x2",
+    "n5y2"    : "n6x2"
+  };
+
   this.Psalmodicon = {
          j2: "vv zq __ __ ry wu __ uw __ sx __ qz ",
          j3: "vt __ tv xq __ ws __ uu __ sw __ qx ",
@@ -94,37 +139,47 @@ function PanThalassa(terrane) {
     k1j56y7: "__ ux yt __ ov qq vo __ ty xu __ __ ",
     k2j56y7: "yr __ __ qz vv zq to __ ry wu __ __ "
   };
+
+  this.Psalmodicon.z0 = this.deadPan();
 }
 
 
-PanThalassa.prototype.graphiato = {
-  fj: function(qp) {return this.en(qp)},
-  cj: function(qp) {return this.bn(qp)},
-  gj: function(qp) {return this.fk(qp)},
-  dj: function(qp) {return this.ck(qp)},
-  aj: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
-  ej: function(qp) {return(qp.slice( 6,24).concat(qp.slice(0, 6)))},
-  bj: function(qp) {return(qp.slice(20,24).concat(qp.slice(0,20)))},
-  fn: function(qp) {return(qp.slice(10,24).concat(qp.slice(0,10)))},
-  cn: function(qp) {return(qp.slice( 0,24).concat(qp.slice(0, 0)))},
-  gn: function(qp) {return(qp.slice(14,24).concat(qp.slice(0,14)))},
-  dn: function(qp) {return(qp.slice( 4,24).concat(qp.slice(0, 4)))},
-  an: function(qp) {return(qp.slice(18,24).concat(qp.slice(0,18)))},
-  en: function(qp) {return(qp.slice( 8,24).concat(qp.slice(0, 8)))},
-  bn: function(qp) {return(qp.slice(22,24).concat(qp.slice(0,22)))},
-  fk: function(qp) {return(qp.slice(12,24).concat(qp.slice(0,12)))},
-  ck: function(qp) {return(qp.slice( 2,24).concat(qp.slice(0, 2)))},
-  gk: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
-  dk: function(qp) {return this.ej(qp)},
-  ak: function(qp) {return this.bj(qp)},
-  ek: function(qp) {return this.fn(qp)},
-  bk: function(qp) {return this.cn(qp)}
+PanThalassa.prototype.deadPan = function() {
+  var necklace = "",
+      trigraph = "__ ",
+      cycle = 0;
+  while (cycle < 12) {
+    necklace += trigraph;
+    cycle++;
+  }
+  return necklace;
 };
 
 
-PanThalassa.prototype.chronos = function() {
-  var epoch = new Date().getTime();
-  return epoch;
+PanThalassa.prototype.acubens = function() {
+  var boundary = document.getElementById(this.LandScape);
+  var plateau = boundary.getElementsByTagName("table")[0];
+  var handle = plateau.getElementsByTagName("button");
+
+  var emerald, abicus = 0;
+  for (emerald in this.KeyStone) {
+    handle[abicus].textContent = this.KeyStone[emerald];
+    abicus++;
+  }
+};
+
+
+PanThalassa.prototype.algedi = function() {
+  var boundary = document.getElementById(this.LandScape);
+  var plateau = boundary.getElementsByTagName("table")[0];
+  var handle = plateau.getElementsByTagName("button");
+  var ruby = Object.keys(this.KeyStone);
+
+  var abicus = 0;
+  while (abicus < handle.length) {
+    handle[abicus].textContent = ruby[abicus];
+    abicus++;
+  }
 };
 
 
@@ -173,22 +228,9 @@ PanThalassa.prototype.setPegBox = function(calibrate) {
 };
 
 
-PanThalassa.prototype.inquire = function(epithet) {
-  var chamber = this.Psalmodicon[epithet].split(" ");
-  var notacet = /[^_]/;
-
-  if (notacet.test(chamber[0])) {
-    return 0;
-  }
-  else if (notacet.test(chamber[7])) {
-    return 7;
-  }
-  else if (notacet.test(chamber[5])) {
-    return 5;
-  }
-  else {
-    return 11;
-  }
+PanThalassa.prototype.chronos = function() {
+  var epoch = new Date().getTime();
+  return epoch;
 };
 
 
@@ -207,15 +249,28 @@ PanThalassa.prototype.shadjam = function(collar, amulet) {
 };
 
 
-PanThalassa.prototype.deadPan = function() {
-  var necklace = "",
-      trigraph = "__ ",
-      cycle = 0;
-  while (cycle < 12) {
-    necklace += trigraph;
-    cycle++;
-  }
-  return necklace;
+PanThalassa.prototype.graphiato = {
+  fj: function(qp) {return this.en(qp)},
+  cj: function(qp) {return this.bn(qp)},
+  gj: function(qp) {return this.fk(qp)},
+  dj: function(qp) {return this.ck(qp)},
+  aj: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
+  ej: function(qp) {return(qp.slice( 6,24).concat(qp.slice(0, 6)))},
+  bj: function(qp) {return(qp.slice(20,24).concat(qp.slice(0,20)))},
+  fn: function(qp) {return(qp.slice(10,24).concat(qp.slice(0,10)))},
+  cn: function(qp) {return(qp.slice( 0,24).concat(qp.slice(0, 0)))},
+  gn: function(qp) {return(qp.slice(14,24).concat(qp.slice(0,14)))},
+  dn: function(qp) {return(qp.slice( 4,24).concat(qp.slice(0, 4)))},
+  an: function(qp) {return(qp.slice(18,24).concat(qp.slice(0,18)))},
+  en: function(qp) {return(qp.slice( 8,24).concat(qp.slice(0, 8)))},
+  bn: function(qp) {return(qp.slice(22,24).concat(qp.slice(0,22)))},
+  fk: function(qp) {return(qp.slice(12,24).concat(qp.slice(0,12)))},
+  ck: function(qp) {return(qp.slice( 2,24).concat(qp.slice(0, 2)))},
+  gk: function(qp) {return(qp.slice(16,24).concat(qp.slice(0,16)))},
+  dk: function(qp) {return this.ej(qp)},
+  ak: function(qp) {return this.bj(qp)},
+  ek: function(qp) {return this.fn(qp)},
+  bk: function(qp) {return this.cn(qp)}
 };
 
 
@@ -237,7 +292,8 @@ PanThalassa.prototype.orchestrate = function() {
   }
 
   var serial = this.chronos();
-  var registry = epithet + "-" + this.TuningPegs + "-" + amalgam + serial;
+  var pegBox = this.TuningPegs;
+  var registry = epithet + "-" + pegBox + "-" + amalgam + serial;
 
   var expanse = this.Scordatura.length;
   var replica = this.Scordatura.slice(0, expanse);
@@ -245,38 +301,15 @@ PanThalassa.prototype.orchestrate = function() {
 
   var boundary = document.getElementById(this.LandScape);
   var lattice = boundary.getElementsByTagName("dl")[0];
-    lattice.firstChild.nextSibling.textContent = registry;
+  var account = lattice.getElementsByTagName("dt")[0];
+  var grill = lattice.getElementsByTagName("dd");
 
-  var truss = lattice.childNodes[2].nextSibling.tagName;
-  var grill = lattice.getElementsByTagName(truss);
+    account.textContent = registry;
 
   for (var tier = 0; tier < expanse; tier++) {
     if (!replica[tier]) break;
     grill[tier].textContent = this.graphiato[replica[tier]](pendant);
   }
-};
-
-
-// Atrium
-PanThalassa.prototype.entryWay = function(epithet) {
-
-  if (!this.TuningPegs) {
-    this.setPegBox("beadgcf");
-  }
-
-  if (!this.Psalmodicon.hasOwnProperty(epithet)) {
-    epithet = "n0";
-  }
-
-  var amulet = this.inquire(epithet);
-  var datums = epithet + " " + amulet.toString();
-
-  var boundary = document.getElementById(this.LandScape);
-  var lanai = boundary.getElementsByTagName("input")[0];
-    lanai.value = datums;
-
-  var gallery = datums.split(" ");
-  this.orchestrate(gallery[0], gallery[1]);
 };
 
 
@@ -294,11 +327,55 @@ PanThalassa.prototype.cartoGraph = function() {
 };
 
 
+PanThalassa.prototype.inquire = function(epithet) {
+  var chamber = this.Psalmodicon[epithet].split(" ");
+  var notacet = /[^_]/;
+
+  if (notacet.test(chamber[0])) {
+    return 0;
+  }
+  else if (notacet.test(chamber[7])) {
+    return 7;
+  }
+  else if (notacet.test(chamber[5])) {
+    return 5;
+  }
+  else {
+    return 11;
+  }
+};
+
+
+// Atrium
+PanThalassa.prototype.entryWay = function(epithet) {
+
+  if (!this.TuningPegs) {
+    this.setPegBox("beadgcf");
+  }
+
+  if (!this.Psalmodicon.hasOwnProperty(epithet)) {
+    epithet = "n0";
+  }
+
+  var frege = /\d+/.test(arguments[1]);
+  var amulet = (frege) ? arguments[1] : this.inquire(epithet);
+  var datums = epithet + " " + amulet.toString();
+
+  var boundary = document.getElementById(this.LandScape);
+  var lanai = boundary.getElementsByTagName("input")[0];
+
+    lanai.value = datums;
+
+  var gallery = datums.split(" ");
+  this.orchestrate(gallery[0], gallery[1]);
+};
+
+
 PanThalassa.prototype.secateurs = function() {
   var boundary = document.getElementById(this.LandScape);
   var lattice = boundary.getElementsByTagName("dl")[0];
-  var truss = lattice.childNodes[2].nextSibling.tagName;
-  var grill = lattice.getElementsByTagName(truss);
+  var account = lattice.getElementsByTagName("dt")[0];
+  var grill = lattice.getElementsByTagName("dd");
   var expanse = grill.length;
 
   for (var tier = 0; tier < expanse; tier++) {
@@ -314,7 +391,7 @@ PanThalassa.prototype.cultivate = function(calibrate) {
 
   this.secateurs();
   this.setPegBox(calibrate);
-  this.entryWay(gallery[0]);
+  this.entryWay(gallery[0], gallery[1]);
 };
 
 

@@ -3,8 +3,6 @@
 
 var LaurAsia = new PanThalassa("hedgerow");
 
-LaurAsia.Psalmodicon.z0 = LaurAsia.deadPan();
-
 
 LaurAsia.ossicle = function() {
   var boundary = document.getElementById(this.LandScape);
@@ -13,10 +11,21 @@ LaurAsia.ossicle = function() {
   handle.addEventListener("click", function() {
     LaurAsia.cartoGraph();
   });
+
+  var stella = boundary.getElementsByTagName("aside")[0];
+  var dragon = stella.getElementsByTagName("span");
+
+  dragon[0].addEventListener("click", function() {
+    LaurAsia.cochlea("algedi");
+  });
+
+  dragon[1].addEventListener("click", function() {
+    LaurAsia.cochlea("acubens");
+  });
 };
 
 
-LaurAsia.cochlea = function() {
+LaurAsia.cochlea = function(phase) {
   var boundary = document.getElementById(this.LandScape);
   var handle = boundary.getElementsByTagName("button");
 
@@ -26,6 +35,10 @@ LaurAsia.cochlea = function() {
       LaurAsia[task](moniker);
     });
   }
+
+  if (!phase) phase = "algedi";
+
+  this[phase]();
 
   for (var abicus = 0; abicus < 44; abicus++) {
     if (abicus < 2) {
@@ -39,8 +52,8 @@ LaurAsia.cochlea = function() {
 
 
 // initialize
-  LaurAsia.entryWay("n0"); 
+  LaurAsia.entryWay("z0");
   LaurAsia.ossicle();
-  LaurAsia.cochlea();
+  LaurAsia.cochlea("algedi");
 
 

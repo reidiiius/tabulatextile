@@ -8,9 +8,9 @@ body {
   color: #2f4f4f;
 }
 article#hedgerow {
-  width: 30em;
-  height: 30em;
-  margin: 2% auto;
+  width: 30.3em;
+  height: 30.3em;
+  margin: 1% auto;
   border: 1px solid #f5deb3;
   border-radius: 6px;
   background-color: #fffaf0;
@@ -109,6 +109,25 @@ section#terrace table#gazebo button {
   color: #708090;
 }
 section#terrace table#gazebo button:hover {
+  border-color: #d2b48c;
+  background-color: #ffffff;
+  color: #2f4f4f;
+  cursor: pointer;
+}
+aside#thuban {
+  padding: 0.25em;
+  text-align: center;
+  font-family: monospace;
+  font-size: 0.66em;
+  color: #708090;
+}
+aside#thuban span {
+  margin: 0 1em;
+  border: 1px solid #deb887;
+  border-radius: 4px;
+  padding: 0.33em;
+}
+aside#thuban span:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
