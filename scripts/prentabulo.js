@@ -173,11 +173,11 @@ PanThalassa.prototype.algedi = function() {
   var boundary = document.getElementById(this.LandScape);
   var plateau = boundary.getElementsByTagName("table")[0];
   var handle = plateau.getElementsByTagName("button");
-  var ruby = Object.keys(this.KeyStone);
+  var rubies = Object.keys(this.KeyStone);
 
   var abicus = 0;
   while (abicus < handle.length) {
-    handle[abicus].textContent = ruby[abicus];
+    handle[abicus].textContent = rubies[abicus];
     abicus++;
   }
 };
@@ -340,8 +340,11 @@ PanThalassa.prototype.inquire = function(epithet) {
   else if (notacet.test(chamber[5])) {
     return 5;
   }
-  else {
+  else if (notacet.test(chamber[11])) {
     return 11;
+  }
+  else {
+    return "";
   }
 };
 

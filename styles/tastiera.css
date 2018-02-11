@@ -8,8 +8,8 @@ body {
   color: #2f4f4f;
 }
 article#hedgerow {
-  width: 30.3em;
-  height: 30.3em;
+  width: 30.33em;
+  height: 30.33em;
   margin: 1% auto;
   border: 1px solid #f5deb3;
   border-radius: 6px;
@@ -23,7 +23,8 @@ section#pergola {
 }
 section#pergola input {
   width: 6.6em;
-  margin: 0;
+  margin: 0.1em;
+  vertical-align: middle;
   border: 1px solid #deb887;
   border-radius: 4px;
   padding: 0.2em;
@@ -32,10 +33,16 @@ section#pergola input {
   font-size: 16px;
   color: #708090;
 }
-section#pergola input#gambrel {
+section#pergola input.veranda {
+  height: 1.66em;
+  padding: 0;
+  background-color: #ffffff;
+}
+section#pergola input.gambrel {
+  height: 1.8em;
   background-color: #fffff0;
 }
-section#pergola input#gambrel:hover {
+section#pergola input.gambrel:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
@@ -43,7 +50,9 @@ section#pergola input#gambrel:hover {
 }
 section#pergola button {
   width: 6.6em;
-  margin: 0;
+  height: 1.8em;
+  margin: 0.1em;
+  vertical-align: middle;
   border: 1px solid #deb887;
   border-radius: 4px;
   padding: 0.2em;
@@ -92,42 +101,44 @@ section#terrace {
   background-color: transparent;
   text-align: center;
 }
-section#terrace table#gazebo {
+section#terrace table.gazebo {
   margin: 0 auto;
   border: 1px solid transparent;
   background-color: #fdf5e6;
 }
-section#terrace table#gazebo button {
-  width: 4.8em;
+section#terrace table.gazebo button {
+  width: 5em;
+  height: 2.3em;
+  vertical-align: middle;
   border: 1px solid #deb887;
   border-radius: 6px;
   background-color: #fffff0;
-  padding: 0.4em 0.3em;
+  padding: 0;
   overflow: hidden;
   font-family: monospace;
-  font-size: 14px;
+  font-size: 0.75em;
   color: #708090;
 }
-section#terrace table#gazebo button:hover {
+section#terrace table.gazebo button:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
   cursor: pointer;
 }
-aside#thuban {
-  padding: 0.25em;
+section#thuban {
+  padding: 0.33em;
   text-align: center;
   font-family: monospace;
   font-size: 0.66em;
   color: #708090;
 }
-aside#thuban span {
+section#thuban span {
   margin: 0 1em;
   border: 1px solid #deb887;
   border-radius: 4px;
   padding: 0.33em;
 }
-aside#thuban span:hover {
+section#thuban span:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
@@ -154,11 +165,12 @@ footer#footnote p.legal {
   }
   section#pergola input {
     width: 6.4em;
-    padding: 0.1em;
+    margin: 0.1em;
+    padding: 0;
   }
   section#pergola button {
-    width: 6.4em;
-    padding: 0.1em;
+    margin: 0.1em;
+    padding: 0;
   }
   section#pavilion {
     width: 96%;
@@ -166,16 +178,19 @@ footer#footnote p.legal {
   }
   dl.lattice {
     width: 94%;
-    margin: 1% auto;
+    margin: 4% auto;
     font-size: 0.9em;
   }
   dl.lattice dt {
     padding: 1%;
     font-size: 0.9em;
   }
-  section#terrace table#gazebo button {
+  section#terrace table.gazebo button {
     border-radius: 4px;
     font-size: 0.69em;
+  }
+  section#thuban {
+    padding: 0.5em;
   }
 }
 
