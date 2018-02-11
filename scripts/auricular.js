@@ -49,7 +49,6 @@ LaurAsia.baldachin = function() {
 
   var pavilion = document.createElement("section");
     pavilion.id = "pavilion";
-    pavilion.lang = "zh";
 
   var trellis = document.createElement("dl");
     trellis.className = "lattice";
@@ -63,6 +62,7 @@ LaurAsia.baldachin = function() {
   var course;
   while (teir < 7) {
     course = document.createElement("dd");
+    course.lang = "zh";
     trellis.appendChild(course);
     teir++;
   }
@@ -101,14 +101,13 @@ LaurAsia.baldachin = function() {
 
   var thuban = document.createElement("section");
     thuban.id = "thuban";
-    thuban.className = "draconis";
 
   var algedi = document.createElement("span");
-    algedi.id = "algedi";
+    algedi.className = "algedi";
     algedi.textContent = "martian";
 
   var acubens = document.createElement("span");
-    acubens.id = "acubens";
+    acubens.className = "acubens";
     acubens.textContent = "cronian";
 
   thuban.appendChild(algedi);
@@ -127,14 +126,14 @@ LaurAsia.ossicle = function() {
     LaurAsia.cartoGraph();
   });
 
-  var stella = boundary.getElementsByTagName("section")[3];
-  var dragon = stella.getElementsByTagName("span");
+  var region = boundary.getElementsByTagName("section")[3];
+  var gadget = region.getElementsByTagName("span");
 
-  dragon[0].addEventListener("click", function() {
+  gadget[0].addEventListener("click", function() {
     LaurAsia.cochlea("algedi");
   });
 
-  dragon[1].addEventListener("click", function() {
+  gadget[1].addEventListener("click", function() {
     LaurAsia.cochlea("acubens");
   });
 };
@@ -155,7 +154,7 @@ LaurAsia.cochlea = function(phase) {
 
   this[phase]();
 
-  for (var abicus = 0; abicus < 44; abicus++) {
+  for (var abicus = 0; abicus < handle.length; abicus++) {
     if (abicus < 2) {
       tympani("cultivate", abicus);
     }

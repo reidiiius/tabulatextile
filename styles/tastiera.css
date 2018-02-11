@@ -69,7 +69,7 @@ section#pergola button:hover {
 }
 section#pavilion {
   width: 21em;
-  height: 11em;
+  height: 11.1em;
   margin: 2px auto;
   border: 1px solid #f5deb3;
   background-color: #fffff0;
@@ -81,7 +81,7 @@ section#pavilion {
 }
 dl.lattice {
   width: 19em;
-  margin: 0.66em auto;
+  margin: 0.6em auto;
   border: 1px solid transparent;
   background-color: #fffff0;
   padding: 0;
@@ -90,7 +90,7 @@ dl.lattice {
   overflow: hidden;
 }
 dl.lattice dt {
-  padding: 2px;
+  padding: 0.2em;
   font-size: 20px;
   color: #8fbc8f;
 }
@@ -144,10 +144,10 @@ section#thuban span:hover {
   color: #2f4f4f;
   cursor: pointer;
 }
-footer#footnote {
+footer#addendum {
   padding: 0;
 }
-footer#footnote p.legal {
+footer#addendum p.rider {
   text-align: center;
   font-family: sans-serif;
   font-size: 14px;
