@@ -7,7 +7,11 @@ body {
   font-size: 18px;
   color: #2f4f4f;
 }
+div#pangaea {
+  text-align: center;
+}
 article.tabulatextile {
+  display: inline-block;
   width: 30.33em;
   height: 30.33em;
   margin: 1% auto;
