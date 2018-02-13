@@ -3,11 +3,11 @@
 
 function PanThalassa(terrane) {
 
-  this.LandScape = terrane;
+  this.PanGaea = terrane;
 
   this.Scordatura = [];
 
-  this.TuningPegs = "";
+  this.HeadStock = "";
 
   this.KeyStone = {
     "j136y7"  : "k135x4",
@@ -157,7 +157,7 @@ PanThalassa.prototype.deadPan = function() {
 
 
 PanThalassa.prototype.acubens = function() {
-  var boundary = document.getElementById(this.LandScape);
+  var boundary = document.getElementById(this.PanGaea);
   var plateau = boundary.getElementsByTagName("table")[0];
   var handle = plateau.getElementsByTagName("button");
 
@@ -170,7 +170,7 @@ PanThalassa.prototype.acubens = function() {
 
 
 PanThalassa.prototype.algedi = function() {
-  var boundary = document.getElementById(this.LandScape);
+  var boundary = document.getElementById(this.PanGaea);
   var plateau = boundary.getElementsByTagName("table")[0];
   var handle = plateau.getElementsByTagName("button");
   var rubies = Object.keys(this.KeyStone);
@@ -184,7 +184,7 @@ PanThalassa.prototype.algedi = function() {
 
 
 PanThalassa.prototype.reCord = function(calibrate, item, replica) {
-  this.TuningPegs = calibrate;
+  this.HeadStock = calibrate;
   while (item < replica.length) {
     this.Scordatura.push(replica[item]);
     item++;
@@ -223,7 +223,7 @@ PanThalassa.prototype.setPegBox = function(calibrate) {
 
     default:
       this.Scordatura = ["dn","bj","fk","dn","bj","fk"];
-      this.TuningPegs = "fkbjdn";
+      this.HeadStock = "fkbjdn";
   }
 };
 
@@ -292,14 +292,14 @@ PanThalassa.prototype.orchestrate = function() {
   }
 
   var serial = this.chronos();
-  var pegBox = this.TuningPegs;
+  var pegBox = this.HeadStock;
   var registry = epithet + "-" + pegBox + "-" + amalgam + serial;
 
   var expanse = this.Scordatura.length;
   var replica = this.Scordatura.slice(0, expanse);
   var pendant = this.shadjam(this.sampurna(epithet), amulet);
 
-  var boundary = document.getElementById(this.LandScape);
+  var boundary = document.getElementById(this.PanGaea);
   var lattice = boundary.getElementsByTagName("dl")[0];
   var account = lattice.getElementsByTagName("dt")[0];
   var grill = lattice.getElementsByTagName("dd");
@@ -314,7 +314,7 @@ PanThalassa.prototype.orchestrate = function() {
 
 
 PanThalassa.prototype.cartoGraph = function() {
-  var boundary = document.getElementById(this.LandScape);
+  var boundary = document.getElementById(this.PanGaea);
   var lanai = boundary.getElementsByTagName("input")[0];
   var gallery = lanai.value.split(" ");
 
@@ -352,7 +352,7 @@ PanThalassa.prototype.inquire = function(epithet) {
 // Atrium
 PanThalassa.prototype.entryWay = function(epithet) {
 
-  if (!this.TuningPegs) {
+  if (!this.HeadStock) {
     this.setPegBox("beadgcf");
   }
 
@@ -364,7 +364,7 @@ PanThalassa.prototype.entryWay = function(epithet) {
   var amulet = (frege) ? arguments[1] : this.inquire(epithet);
   var datums = epithet + " " + amulet.toString();
 
-  var boundary = document.getElementById(this.LandScape);
+  var boundary = document.getElementById(this.PanGaea);
   var lanai = boundary.getElementsByTagName("input")[0];
 
     lanai.value = datums;
@@ -375,7 +375,7 @@ PanThalassa.prototype.entryWay = function(epithet) {
 
 
 PanThalassa.prototype.secateurs = function() {
-  var boundary = document.getElementById(this.LandScape);
+  var boundary = document.getElementById(this.PanGaea);
   var lattice = boundary.getElementsByTagName("dl")[0];
   var account = lattice.getElementsByTagName("dt")[0];
   var grill = lattice.getElementsByTagName("dd");
@@ -388,13 +388,129 @@ PanThalassa.prototype.secateurs = function() {
 
 
 PanThalassa.prototype.cultivate = function(calibrate) {
-  var boundary = document.getElementById(this.LandScape);
+  var boundary = document.getElementById(this.PanGaea);
   var lanai = boundary.getElementsByTagName("input")[0];
   var gallery = lanai.value.split(" ");
 
   this.secateurs();
   this.setPegBox(calibrate);
   this.entryWay(gallery[0], gallery[1]);
+};
+
+
+PanThalassa.prototype.baldachin = function() {
+  var boundary = document.getElementById(this.PanGaea);
+    boundary.className = document.title.toLowerCase();
+
+  var ostracon = document.createDocumentFragment();
+
+  var pergola = document.createElement("section");
+    pergola.className = "pergola";
+
+  var threshold = document.createElement("span");
+    threshold.className = "threshold";
+
+  var veranda = document.createElement("input");
+    veranda.className = "veranda";
+    veranda.setAttribute("type", "text");
+    veranda.setAttribute("maxlength", "10");
+
+  var gambrel = document.createElement("input");
+    gambrel.className = "gambrel";
+    gambrel.setAttribute("type", "button");
+    gambrel.setAttribute("value", "morph");
+
+  var bandstand = document.createElement("span");
+    bandstand.className = "bandstand";
+
+  var eadgbe = document.createElement("button");
+    eadgbe.className = "tuning";
+    eadgbe.setAttribute("type", "button");
+    eadgbe.textContent = "eadgbe";
+
+  var cgdae = document.createElement("button");
+    cgdae.className = "tuning";
+    cgdae.setAttribute("type", "button");
+    cgdae.textContent = "cgdae";
+
+  threshold.appendChild(veranda);
+  threshold.appendChild(gambrel);
+
+  bandstand.appendChild(eadgbe);
+  bandstand.appendChild(cgdae);
+
+  pergola.appendChild(threshold);
+  pergola.appendChild(bandstand);
+  ostracon.appendChild(pergola);
+
+  var pavilion = document.createElement("section");
+    pavilion.className = "pavilion";
+
+  var trellis = document.createElement("dl");
+    trellis.className = "lattice";
+
+  var account = document.createElement("dt");
+    account.lang = "";
+
+  trellis.appendChild(account);
+
+  var teir = 0;
+  var course;
+  while (teir < 7) {
+    course = document.createElement("dd");
+    course.lang = "zh";
+    trellis.appendChild(course);
+    teir++;
+  }
+
+  pavilion.appendChild(trellis);
+  ostracon.appendChild(pavilion);
+
+  var terrace = document.createElement("section");
+    terrace.className = "terrace";
+
+  var gazebo = document.createElement("table");
+    gazebo.className = "gazebo";
+
+  var tbody = document.createElement("tbody");
+  var trow, cell, bttn;
+
+  gazebo.appendChild(tbody);
+
+  for (teir = 0; teir < 6; teir++) {
+    trow = document.createElement("tr");
+    tbody.appendChild(trow);
+
+    var slot = 0;
+    while(slot < 7) {
+      cell = document.createElement("td");
+      bttn = document.createElement("button");
+        bttn.setAttribute("type", "button");
+      trow.appendChild(cell);
+      cell.appendChild(bttn);
+      slot++;
+    }
+  }
+
+  terrace.appendChild(gazebo);
+  ostracon.appendChild(terrace);
+
+  var thuban = document.createElement("section");
+    thuban.className = "thuban";
+
+  var algedi = document.createElement("span");
+    algedi.className = "algedi";
+    algedi.textContent = "martian";
+
+  var acubens = document.createElement("span");
+    acubens.className = "acubens";
+    acubens.textContent = "cronian";
+
+  thuban.appendChild(algedi);
+  thuban.appendChild(acubens);
+  ostracon.appendChild(thuban);
+
+  boundary.appendChild(ostracon);
 };
 
 

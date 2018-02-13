@@ -7,21 +7,22 @@ body {
   font-size: 18px;
   color: #2f4f4f;
 }
-article#hedgerow {
+article.tabulatextile {
   width: 30.33em;
   height: 30.33em;
   margin: 1% auto;
   border: 1px solid #f5deb3;
   border-radius: 6px;
+  overflow: hidden;
   background-color: #fffaf0;
   padding: 2px 0;
-  overflow: hidden;
 }
-section#pergola {
+section.pergola {
   padding: 2px;
   text-align: center;
+  white-space: nowrap;
 }
-section#pergola input {
+section.pergola input {
   width: 6.6em;
   margin: 0.1em;
   vertical-align: middle;
@@ -33,22 +34,22 @@ section#pergola input {
   font-size: 16px;
   color: #708090;
 }
-section#pergola input.veranda {
+section.pergola input.veranda {
   height: 1.66em;
   padding: 0;
   background-color: #ffffff;
 }
-section#pergola input.gambrel {
+section.pergola input.gambrel {
   height: 1.8em;
   background-color: #fffff0;
 }
-section#pergola input.gambrel:hover {
+section.pergola input.gambrel:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
   cursor: pointer;
 }
-section#pergola button {
+section.pergola button {
   width: 6.6em;
   height: 1.8em;
   margin: 0.1em;
@@ -61,20 +62,20 @@ section#pergola button {
   font-size: 16px;
   color: #708090;
 }
-section#pergola button:hover {
+section.pergola button:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
   cursor: pointer;
 }
-section#pavilion {
+section.pavilion {
   width: 21em;
   height: 11.1em;
   margin: 2px auto;
   border: 1px solid #f5deb3;
+  overflow: hidden;
   background-color: #fffff0;
   padding: 0;
-  overflow: hidden;
   text-align: center;
   font-size: 24px;
   color: #2f4f4f;
@@ -83,11 +84,11 @@ dl.lattice {
   width: 19em;
   margin: 0.6em auto;
   border: 1px solid transparent;
-  background-color: #fffff0;
-  padding: 0;
+  overflow: hidden;
   line-height: 1.2;
   white-space: nowrap;
-  overflow: hidden;
+  background-color: #fffff0;
+  padding: 0;
 }
 dl.lattice dt {
   padding: 0.2em;
@@ -97,48 +98,49 @@ dl.lattice dt {
 dl.lattice dd {
   margin: 0;
 }
-section#terrace {
+section.terrace {
   background-color: transparent;
   text-align: center;
 }
-section#terrace table.gazebo {
+section.terrace table.gazebo {
   margin: 0 auto;
   border: 1px solid transparent;
   background-color: #fdf5e6;
 }
-section#terrace table.gazebo button {
+section.terrace table.gazebo button {
   width: 5em;
   height: 2.3em;
   vertical-align: middle;
   border: 1px solid #deb887;
   border-radius: 6px;
+  overflow: hidden;
   background-color: #fffff0;
   padding: 0;
-  overflow: hidden;
   font-family: monospace;
   font-size: 0.75em;
   color: #708090;
 }
-section#terrace table.gazebo button:hover {
+section.terrace table.gazebo button:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
   cursor: pointer;
 }
-section#thuban {
+section.thuban {
   padding: 0.33em;
   text-align: center;
   font-family: monospace;
   font-size: 0.66em;
   color: #708090;
 }
-section#thuban span {
+section.thuban span {
   margin: 0 1em;
   border: 1px solid #deb887;
   border-radius: 4px;
+  background-color: #fffff0;
   padding: 0.33em;
 }
-section#thuban span:hover {
+section.thuban span:hover {
   border-color: #d2b48c;
   background-color: #ffffff;
   color: #2f4f4f;
@@ -153,26 +155,27 @@ footer#addendum p.rider {
   font-size: 14px;
   color: #808080;
 }
+
 @media screen and (max-width: 540px) {
-  article#hedgerow {
+  article.tabulatextile {
     width: 98%;
     margin: 1% auto;
     padding: 1% 0;
   }
-  section#pergola {
+  section.pergola {
     padding: 1px;
     font-size: 0.66em;
   }
-  section#pergola input {
+  section.pergola input {
     width: 6.4em;
     margin: 0.1em;
     padding: 0;
   }
-  section#pergola button {
+  section.pergola button {
     margin: 0.1em;
     padding: 0;
   }
-  section#pavilion {
+  section.pavilion {
     width: 96%;
     margin: 1% auto;
   }
@@ -185,11 +188,11 @@ footer#addendum p.rider {
     padding: 1%;
     font-size: 0.9em;
   }
-  section#terrace table.gazebo button {
+  section.terrace table.gazebo button {
     border-radius: 4px;
     font-size: 0.69em;
   }
-  section#thuban {
+  section.thuban {
     padding: 0.5em;
   }
 }

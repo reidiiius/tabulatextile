@@ -1,176 +1,70 @@
 
 "use strict";
 
-var LaurAsia = new PanThalassa("hedgerow");
+function TecTonic(Craton) {
 
+  Craton.ossicle = function() {
+    var boundary = document.getElementById(this.PanGaea);
+    var handle = boundary.getElementsByTagName("input")[1];
 
-LaurAsia.baldachin = function() {
-  var boundary = document.getElementById(this.LandScape);
-  var ostracon = document.createDocumentFragment();
-
-  var pergola = document.createElement("section");
-    pergola.id = "pergola";
-
-  var threshold = document.createElement("span");
-    threshold.className = "threshold";
-
-  var veranda = document.createElement("input");
-    veranda.className = "veranda";
-    veranda.setAttribute("type", "text");
-    veranda.setAttribute("maxlength", "10");
-
-  var gambrel = document.createElement("input");
-    gambrel.className = "gambrel";
-    gambrel.setAttribute("type", "button");
-    gambrel.setAttribute("value", "morph");
-
-  var bandstand = document.createElement("span");
-    bandstand.className = "bandstand";
-
-  var eadgbe = document.createElement("button");
-    eadgbe.className = "tuning";
-    eadgbe.setAttribute("type", "button");
-    eadgbe.textContent = "eadgbe";
-
-  var cgdae = document.createElement("button");
-    cgdae.className = "tuning";
-    cgdae.setAttribute("type", "button");
-    cgdae.textContent = "cgdae";
-
-  threshold.appendChild(veranda);
-  threshold.appendChild(gambrel);
-
-  bandstand.appendChild(eadgbe);
-  bandstand.appendChild(cgdae);
-
-  pergola.appendChild(threshold);
-  pergola.appendChild(bandstand);
-  ostracon.appendChild(pergola);
-
-  var pavilion = document.createElement("section");
-    pavilion.id = "pavilion";
-
-  var trellis = document.createElement("dl");
-    trellis.className = "lattice";
-
-  var account = document.createElement("dt");
-    account.lang = "";
-
-  trellis.appendChild(account);
-
-  var teir = 0;
-  var course;
-  while (teir < 7) {
-    course = document.createElement("dd");
-    course.lang = "zh";
-    trellis.appendChild(course);
-    teir++;
-  }
-
-  pavilion.appendChild(trellis);
-  ostracon.appendChild(pavilion);
-
-  var terrace = document.createElement("section");
-    terrace.id = "terrace";
-
-  var gazebo = document.createElement("table");
-    gazebo.className = "gazebo";
-
-  var tbody = document.createElement("tbody");
-  var trow, cell, bttn;
-
-  gazebo.appendChild(tbody);
-
-  for (teir = 0; teir < 6; teir++) {
-    trow = document.createElement("tr");
-    tbody.appendChild(trow);
-
-    var slot = 0;
-    while(slot < 7) {
-      cell = document.createElement("td");
-      bttn = document.createElement("button");
-        bttn.setAttribute("type", "button");
-      trow.appendChild(cell);
-      cell.appendChild(bttn);
-      slot++;
-    }
-  }
-
-  terrace.appendChild(gazebo);
-  ostracon.appendChild(terrace);
-
-  var thuban = document.createElement("section");
-    thuban.id = "thuban";
-
-  var algedi = document.createElement("span");
-    algedi.className = "algedi";
-    algedi.textContent = "martian";
-
-  var acubens = document.createElement("span");
-    acubens.className = "acubens";
-    acubens.textContent = "cronian";
-
-  thuban.appendChild(algedi);
-  thuban.appendChild(acubens);
-  ostracon.appendChild(thuban);
-
-  boundary.appendChild(ostracon);
-};
-
-
-LaurAsia.ossicle = function() {
-  var boundary = document.getElementById(this.LandScape);
-  var handle = boundary.getElementsByTagName("input")[1];
-
-  handle.addEventListener("click", function() {
-    LaurAsia.cartoGraph();
-  });
-
-  var region = boundary.getElementsByTagName("section")[3];
-  var gadget = region.getElementsByTagName("span");
-
-  gadget[0].addEventListener("click", function() {
-    LaurAsia.cochlea("algedi");
-  });
-
-  gadget[1].addEventListener("click", function() {
-    LaurAsia.cochlea("acubens");
-  });
-};
-
-
-LaurAsia.cochlea = function(phase) {
-  var boundary = document.getElementById(this.LandScape);
-  var handle = boundary.getElementsByTagName("button");
-
-  function tympani(task, segment) {
-    var moniker = handle[segment].textContent;
-    handle[segment].addEventListener("click", function() {
-      LaurAsia[task](moniker);
+    handle.addEventListener("click", function() {
+      Craton.cartoGraph();
     });
-  }
 
-  if (!phase) phase = "algedi";
+    var region = boundary.getElementsByTagName("section")[3];
+    var gadget = region.getElementsByTagName("span");
 
-  this[phase]();
+    gadget[0].addEventListener("click", function() {
+      Craton.cochlea("algedi");
+    });
 
-  for (var abicus = 0; abicus < handle.length; abicus++) {
-    if (abicus < 2) {
-      tympani("cultivate", abicus);
+    gadget[1].addEventListener("click", function() {
+      Craton.cochlea("acubens");
+    });
+  };
+
+
+  Craton.cochlea = function(phase) {
+    var boundary = document.getElementById(this.PanGaea);
+    var handle = boundary.getElementsByTagName("button");
+
+    function tympani(task, segment) {
+      var moniker = handle[segment].textContent;
+      handle[segment].addEventListener("click", function() {
+        Craton[task](moniker);
+      });
     }
-    else {
-      tympani("entryWay", abicus);
+
+    if (!phase) phase = "algedi";
+
+    this[phase]();
+
+    for (var abicus = 0; abicus < handle.length; abicus++) {
+      if (abicus < 2) {
+        tympani("cultivate", abicus);
+      }
+      else {
+        tympani("entryWay", abicus);
+      }
     }
-  }
-};
+  };
+
+
+  Craton.baldachin();
+  Craton.cochlea("algedi");
+  Craton.ossicle();
+  Craton.entryWay("z0");
+
+}
 
 
 window.onload = function() {
 
-  LaurAsia.baldachin();
-  LaurAsia.cochlea("algedi");
-  LaurAsia.ossicle();
-  LaurAsia.entryWay("z0");
+  var LaurAsia = new PanThalassa("laurasia");
+  var GondWanna = new PanThalassa("gondwanna");
+
+  TecTonic(LaurAsia);
+  TecTonic(GondWanna);
 
 };
 
