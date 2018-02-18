@@ -1,71 +1,69 @@
 
 "use strict";
 
-function TecTonic(Craton) {
+PanThalassa.prototype.ossicle = function() {
+  var boundary = document.getElementById(this.PanGaea);
+  var handle = boundary.getElementsByTagName("input")[1];
+  var craton = this;
 
-  Craton.ossicle = function() {
-    var boundary = document.getElementById(this.PanGaea);
-    var handle = boundary.getElementsByTagName("input")[1];
+  handle.addEventListener("click", function() {
+    craton.cartoGraph();
+  });
 
-    handle.addEventListener("click", function() {
-      Craton.cartoGraph();
+  var region = boundary.getElementsByTagName("section")[3];
+  var gadget = region.getElementsByTagName("span");
+
+  gadget[0].addEventListener("click", function() {
+    craton.cochlea("algedi");
+  });
+
+  gadget[1].addEventListener("click", function() {
+    craton.cochlea("acubens");
+  });
+};
+
+
+PanThalassa.prototype.cochlea = function(phase) {
+  var boundary = document.getElementById(this.PanGaea);
+  var handle = boundary.getElementsByTagName("button");
+  var craton = this;
+
+  function tympani(task, segment) {
+    var moniker = handle[segment].textContent;
+    handle[segment].addEventListener("click", function() {
+      craton[task](moniker);
     });
+  }
 
-    var region = boundary.getElementsByTagName("section")[3];
-    var gadget = region.getElementsByTagName("span");
+  if (!phase) phase = "algedi";
 
-    gadget[0].addEventListener("click", function() {
-      Craton.cochlea("algedi");
-    });
+  this[phase]();
 
-    gadget[1].addEventListener("click", function() {
-      Craton.cochlea("acubens");
-    });
-  };
-
-
-  Craton.cochlea = function(phase) {
-    var boundary = document.getElementById(this.PanGaea);
-    var handle = boundary.getElementsByTagName("button");
-
-    function tympani(task, segment) {
-      var moniker = handle[segment].textContent;
-      handle[segment].addEventListener("click", function() {
-        Craton[task](moniker);
-      });
+  for (var abicus = 0; abicus < handle.length; abicus++) {
+    if (abicus < 2) {
+      tympani("cultivate", abicus);
     }
-
-    if (!phase) phase = "algedi";
-
-    this[phase]();
-
-    for (var abicus = 0; abicus < handle.length; abicus++) {
-      if (abicus < 2) {
-        tympani("cultivate", abicus);
-      }
-      else {
-        tympani("entryWay", abicus);
-      }
+    else {
+      tympani("entryWay", abicus);
     }
-  };
+  }
+};
 
 
-  Craton.baldachin();
-  Craton.cochlea("algedi");
-  Craton.ossicle();
-  Craton.entryWay("z0");
-
-}
+PanThalassa.prototype.TecTonic = function() {
+  this.baldachin();
+  this.cochlea("algedi");
+  this.ossicle();
+  this.entryWay("z0");
+};
 
 
 window.onload = function() {
-
   var LaurAsia = new PanThalassa("laurasia");
   var GondWanna = new PanThalassa("gondwanna");
 
-  TecTonic(LaurAsia);
-  TecTonic(GondWanna);
-
+  LaurAsia.TecTonic();
+  GondWanna.TecTonic();
 };
 
 
