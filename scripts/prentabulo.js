@@ -9,49 +9,23 @@ function PanThalassa(terrane) {
 
   this.HeadStock = "";
 
-  this.KeyStone = {
-    "j136y7"  : "k135x4",
-    "j167y2"  : "k345x2",
-    "j17"     : "k34",
-    "j17y2"   : "k34x2",
-    "j2"      : "k2",
-    "j23"     : "k12",
-    "j236"    : "k125",
-    "j23k6"   : "k12j5",
-    "j246y3"  : "k257x1",
-    "j26"     : "k25",
-    "j26y3"   : "k25x1",
-    "j26y34"  : "k25x17",
-    "j2k56"   : "k2j56",
-    "j2k56x4" : "k2j56y7",
-    "j2k6"    : "k2j5",
-    "j2k6x5"  : "k2j5y6",
-    "j2k6y3"  : "k2j5x1",
-    "j2y3"    : "k2x1",
-    "j3"      : "k1",
-    "j34k6"   : "k17j5",
-    "j36"     : "k15",
-    "j3k56x4" : "k1j56y7",
-    "j3k5x4"  : "k1j6y7",
-    "j3k6"    : "k1j5",
-    "j6"      : "k5",
-    "k157x6"  : "j346y5",
-    "k1j6"    : "j3k5",
-    "k256"    : "j256",
-    "k26"     : "j25",
-    "k26x5"   : "j25y6",
-    "k2j17"   : "j2k34",
-    "k2j6"    : "j2k5",
-    "k56"     : "j56",
-    "k56x4"   : "j56y7",
-    "k6"      : "j5",
-    "k6x5"    : "j5y6",
-    "n0"      : "n0",
-    "n167x4"  : "n345y7",
-    "n26y5"   : "n25x6",
-    "n345"    : "n167",
-    "n45y2"   : "n67x2",
-    "n5y2"    : "n6x2"
+  this.GemStone = {
+    corundum: [
+      "j136y7", "j167y2", "j17", "j17y2", "j2", "j23", "j236",
+      "j23k6", "j246y3", "j26", "j26y3", "j26y34", "j2k56", "j2k56x4",
+      "j2k6", "j2k6x5", "j2k6y3", "j2y3", "j3", "j34k6", "j36",
+      "j3k56x4", "j3k5x4", "j3k6", "j6", "k157x6", "k1j6", "k256",
+      "k26", "k26x5", "k2j17", "k2j6", "k56", "k56x4", "k6",
+      "k6x5", "n0", "n167x4", "n26y5", "n345", "n45y2", "n5y2"
+    ],
+    emerald: [
+      "k135x4", "k345x2", "k34", "k34x2", "k2", "k12", "k125",
+      "k12j5", "k257x1", "k25", "k25x1", "k25x17", "k2j56", "k2j56y7",
+      "k2j5", "k2j5y6", "k2j5x1", "k2x1", "k1", "k17j5", "k15",
+      "k1j56y7", "k1j6y7", "k1j5", "k5", "j346y5", "j3k5", "j256",
+      "j25", "j25y6", "j2k34", "j2k5", "j56", "j56y7", "j5",
+      "j5y6", "n0", "n345y7", "n25x6", "n167", "n67x2", "n6x2"
+    ]
   };
 
   this.Psalmodicon = {
@@ -156,29 +130,15 @@ PanThalassa.prototype.deadPan = function() {
 };
 
 
-PanThalassa.prototype.acubens = function() {
+PanThalassa.prototype.invert = function(phase) {
   var boundary = document.getElementById(this.PanGaea);
   var plateau = boundary.getElementsByTagName("table")[0];
   var handle = plateau.getElementsByTagName("button");
+  var replica = this.GemStone[phase].slice(0, this.GemStone[phase].length);
 
-  var emerald, abicus = 0;
-  for (emerald in this.KeyStone) {
-    handle[abicus].textContent = this.KeyStone[emerald];
-    abicus++;
-  }
-};
-
-
-PanThalassa.prototype.algedi = function() {
-  var boundary = document.getElementById(this.PanGaea);
-  var plateau = boundary.getElementsByTagName("table")[0];
-  var handle = plateau.getElementsByTagName("button");
-  var rubies = Object.keys(this.KeyStone);
-
-  var abicus = 0;
-  while (abicus < handle.length) {
-    handle[abicus].textContent = rubies[abicus];
-    abicus++;
+  var item;
+  for (item in replica) {
+    handle[item].textContent = replica[item];
   }
 };
 
@@ -527,11 +487,11 @@ PanThalassa.prototype.ossicle = function() {
   var gadget = region.getElementsByTagName("span");
 
   gadget[0].addEventListener("click", function() {
-    craton.cochlea("algedi");
+    craton.cochlea("corundum");
   });
 
   gadget[1].addEventListener("click", function() {
-    craton.cochlea("acubens");
+    craton.cochlea("emerald");
   });
 };
 
@@ -548,9 +508,9 @@ PanThalassa.prototype.cochlea = function(phase) {
     });
   }
 
-  if (!phase) phase = "algedi";
+  if (!phase) phase = "corundum";
 
-  this[phase]();
+  this.invert(phase);
 
   for (var abicus = 0; abicus < handle.length; abicus++) {
     if (abicus < 2) {
@@ -565,7 +525,7 @@ PanThalassa.prototype.cochlea = function(phase) {
 
 PanThalassa.prototype.tecTonic = function() {
   this.baldachin();
-  this.cochlea("algedi");
+  this.cochlea("corundum");
   this.ossicle();
   this.entryWay("z0");
 };
